@@ -28,7 +28,7 @@ If a post does not connect to one of these, it is not an opportunity, no matter 
 - a verbatim link to the post
 - why it fits wes (which of his experiences applies)
 - a reply angle: 2 to 3 sentences on the point to make
-- a draft reply in wes's voice, ready to copy-paste
+- a draft reply in wes's voice, ready to copy-paste: dumbed down, easy to read, succinct. Blunt short sentences, fragments fine, mildly imperfect grammar ok. Aim under 60 words. If it reads like an essay, it is wrong.
 
 Quality bar over quota. If fewer than 3 genuine opportunities exist, the file says the day was quiet and why.
 
