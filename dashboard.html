@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reply Radar Dashboard</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+max-width:860px;margin:0 auto;padding:24px;color:#1a1a1a;background:#fafafa;line-height:1.55}
+h1{font-size:28px;margin-bottom:4px}
+.sub{color:#666;margin-bottom:28px}
+.day{margin-bottom:48px;padding-bottom:24px;border-bottom:2px solid #e2e2e2}
+.day h2{font-size:22px;margin-bottom:8px}
+.summary{color:#444;margin:0 0 16px 20px;padding:0}
+.card{background:#fff;border:1px solid #e5e5e5;border-radius:10px;padding:16px 18px;margin:14px 0}
+.card-head{font-size:17px;font-weight:700;margin-bottom:6px}
+.reach{color:#666;font-weight:400;font-size:14px;margin-left:8px}
+.post{margin:8px 0;color:#222}
+.postlink{font-size:14px}
+.meta{font-size:14px;color:#444;margin-top:8px}
+.draftbox{margin-top:12px;background:#f4f6f8;border:1px solid #dfe3e8;border-radius:8px;padding:12px 14px}
+.draftlabel{font-size:13px;font-weight:700;color:#555;margin-bottom:6px}
+.draft{white-space:pre-wrap;font-size:15px;color:#111}
+.copybtn{margin-left:10px;font-size:13px;padding:3px 12px;border-radius:6px;border:1px solid #bbb;
+background:#fff;cursor:pointer}
+.copybtn:hover{background:#eee}
+.quiet{background:#fff8e6;border:1px solid #f0dfae;border-radius:8px;padding:12px 16px;margin:12px 0}
+.notes{font-size:14px;color:#444;margin-top:14px}
+.notes ul{margin:6px 0 0 20px;padding:0}
+</style>
+</head>
+<body>
+<h1>Reply Radar</h1>
+<div class="sub">Daily X reply opportunities for @ucsandman. Drafts are in wes's voice; he posts them himself.</div>
+<section class="day" id="2026-09-17">
+<h2>2026-09-17</h2>
+<ul class="summary">
+<li>7 queries via the X API (3 watchlist `from:` queries at 10 results, 4 topic queries at 10-12 results with crypto-spam exclusions). 63 posts returned, all within the last 24 hours. Cost approx $0.32 at $0.005/post (down from $1.19 on the 2026-09-16 trial).</li>
+<li>Watchlist: @karpathy, @swyx, and @AnthropicAI posted nothing in the last 24 hours in wes&#x27;s territory (karpathy&#x27;s latest is Sep 12; swyx posted only RTs and podcast mentions; AnthropicAI&#x27;s latest is Sep 12).</li>
+<li>Topic queries skewed toward spam and small accounts, same as yesterday. Three genuine opportunities below; a thin day overall.</li>
+</ul>
+<div class="card">
+<div class="card-head"><span class="handle">@meng_shengyu</span> <span class="reach">2.2k followers</span></div>
+<div class="post">&quot;Latest dump of the GPT/Codex quota-expansion trick: pull ChatGPT web quota onto your machine for Codex... Four ways to bolt a local MCP onto ChatGPT web and make it a coding agent.&quot;</div>
+<a class="postlink" href="https://x.com/meng_shengyu/status/2100437086960513122" target="_blank" rel="noopener">Open post</a>
+<div class="meta"><strong>Why it fits:</strong> coding-agent usage limits are squarely wes&#x27;s territory (he has mapped where coding agents hide their limits), and the MCP bolt-on angle touches his MCP server work (leg-alexa-mcp, ctx MCP server).</div>
+<div class="meta"><strong>Angle:</strong> this is a quota-arbitrage story, not just a hack story. wes can note that quota tricks are a symptom of opaque limit design, and that bolting MCP onto ChatGPT web to reach local files is exactly the kind of session-reach problem MCP was meant to solve. He could also ask which of the four approaches preserves session state when the web session dies, since that is where these setups usually break.</div>
+<div class="draftbox"><div class="draftlabel">Draft reply <button class="copybtn" onclick="copyDraft(this, 'draft-2026-09-17-1')">Copy</button></div><div class="draft" id="draft-2026-09-17-1">These quota-arbitrage stories always tell me the limits are opaque, not that the users are clever. Bolting MCP onto ChatGPT web to reach local files is the right instinct though, it&#x27;s exactly a session-reach problem. Which of the four actually keeps working when the web session dies? That&#x27;s where these setups always break for me.</div></div>
+</div>
+<div class="card">
+<div class="card-head"><span class="handle">@davidpattersonx</span> <span class="reach">19.9k followers</span></div>
+<div class="post">pushes back on scaremongering about context compaction, arguing it summarizes what the user requested, which is very different from the model&#x27;s internal reasoning.</div>
+<a class="postlink" href="https://x.com/davidpattersonx/status/2100552755148427617" target="_blank" rel="noopener">Open post</a>
+<div class="meta"><strong>Why it fits:</strong> agent session and context management is wes&#x27;s home turf. LegCli exists because sessions die and context rots; he has run long autonomous loops and built handoff infrastructure around exactly this boundary.</div>
+<div class="meta"><strong>Angle:</strong> agree with the distinction, then sharpen it. Context compaction preserving the user&#x27;s requested state is fine for a single session, but wes can point at what happens when the session has to move machines or resume after a crash: compaction is a within-session mechanism, and handoff across sessions is the unsolved part. That reframes the debate toward the infrastructure question he actually owns.</div>
+<div class="draftbox"><div class="draftlabel">Draft reply <button class="copybtn" onclick="copyDraft(this, 'draft-2026-09-17-2')">Copy</button></div><div class="draft" id="draft-2026-09-17-2">The distinction is right. Compaction keeping the user&#x27;s requested state is fine inside one session. The part that breaks is handoff across sessions: new machine, crash recovery, a different agent picking up. That&#x27;s where my long runs actually die, the within-session stuff mostly works. Ever gotten a compacted session to hand off cleanly to another agent?</div></div>
+</div>
+<div class="card">
+<div class="card-head"><span class="handle">@gdlinux</span> <span class="reach">719 followers</span></div>
+<div class="post">&quot;A valid token is not the same thing as valid intent.&quot; When agents act inside Microsoft 365, cloud platforms, and code repos with legitimate credentials, authentication can succeed perfectly while the agent does something the user never intended.</div>
+<a class="postlink" href="https://x.com/gdlinux/status/2100559653247524883" target="_blank" rel="noopener">Open post</a>
+<div class="meta"><strong>Why it fits:</strong> directly in wes&#x27;s AI governance territory. The DashClaw catastrophe floor exists precisely because auth succeeding does not mean the action is safe; approval gating on irreversible high-risk actions is his lived experience.</div>
+<div class="meta"><strong>Angle:</strong> wes can ground this with how DashClaw&#x27;s catastrophe floor handles the exact gap described. Valid credentials plus a risky action equals a hold for human approval, scored by reversibility rather than by identity. That turns a general observation into a concrete mechanism, which is what he can contribute that most commenters cannot.</div>
+<div class="draftbox"><div class="draftlabel">Draft reply <button class="copybtn" onclick="copyDraft(this, 'draft-2026-09-17-3')">Copy</button></div><div class="draft" id="draft-2026-09-17-3">Exactly the gap I built the catastrophe floor around. Auth succeeding tells you who, not whether the action is safe. I score everything by reversibility instead, and anything irreversible holds for a human yes no matter whose token signed it.</div></div>
+</div>
+<div class="notes"><strong>Notes</strong><ul>
+<li>Smaller accounts with on-territory posts but below the reach bar today: @ZenithYeAI (Weave Router 2.0, per-turn model routing for Claude Code/Codex/Cursor, token-economics territory), @gamalinosqui (harness-engineering-as-grift take), @echo_vic (subagent tree cancellation in orca-agent). No fast-breakout engagement signal on any of them, so none made the bar.</li>
+<li>An @Ai_hebrew reply to @hwchase17 asked whether a claim holds for longer tasks needing several rounds of context compaction. The original hwchase17 post did not surface in search, so there is no verifiable target; worth checking if hwchase17 posts on compaction this week, since a reply from a watchlist account would be a prime target.</li>
+</ul></div>
+</section>
+<section class="day" id="2026-09-16">
+<h2>2026-09-16</h2>
+<div class="quiet"><strong>Quiet day.</strong></div>
+<p>No genuine reply opportunities could be sourced today that meet the radar&#x27;s own bar: an X post from the last 24 hours, with a verifiable link, in wes&#x27;s territory, from an account with real reach.</p>
+<p><strong>Why:</strong> the available discovery tooling cannot see fresh X posts. Web search returns news articles, GitHub repos, and blog posts but does not surface X posts from the last 24 hours with citable links, and the social search connector covers Instagram, Threads, and Facebook only, not X. Without a verifiable post link, inventing one would violate the no-invention rule, so nothing is listed.</p>
+</section>
+<script>
+function copyDraft(btn, id){
+  var el = document.getElementById(id);
+  var text = el.innerText;
+  function done(){ var o = btn.textContent; btn.textContent = "Copied";
+    setTimeout(function(){ btn.textContent = o; }, 1200); }
+  function fallback(){
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); done(); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done, fallback);
+  } else { fallback(); }
+}
+</script>
+</body>
+</html>
