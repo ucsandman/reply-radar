@@ -32,6 +32,42 @@ background:#fff;cursor:pointer}
 <body>
 <h1>Reply Radar</h1>
 <div class="sub">Daily X reply opportunities for @ucsandman. Drafts are in wes's voice; he posts them himself.</div>
+<section class="day" id="2026-09-18">
+<h2>2026-09-18</h2>
+<ul class="summary">
+<li>9 X API queries (6 watchlist `from:` queries at max 10, 4 topic queries at 10-12 with crypto-spam exclusions). 90 posts returned, all within the last 24 hours. Cost approx $0.45 at $0.005/post, over the ~$0.30/day cap. Next run: 6-7 queries at max 10, stay under 60 posts total.</li>
+<li>Watchlist: karpathy still quiet since Sep 12. swyx posted only replies and podcast mentions, nothing in territory. AnthropicAI&#x27;s posts were protein design, AI R&amp;D measurement, and the Life Sciences Verification Program, none in wes&#x27;s territory. rauchg&#x27;s agent hotfix post (26 replies) is not territory; his 1.4B-deployments post (62 replies) is saturated. levelsio&#x27;s calls posts are not territory.</li>
+<li>hwchase17 is the hot watchlist account today. His &quot;models may not actually benefit from a native harness&quot; post (Sep 17, 57 replies) was skipped per the 50+ reply rule, but it is the week&#x27;s central harness debate and worth tracking.</li>
+</ul>
+<div class="card">
+<div class="card-head"><span class="handle">@hwchase17</span> <span class="reach">131.3k followers</span></div>
+<div class="post">&quot;Jev isn&#x27;t meant for text generation, it&#x27;s for simpler constrained output. Turns out, that can actually be very useful when building a harness!&quot;</div>
+<a class="postlink" href="https://x.com/hwchase17/status/2100773130041950570" target="_blank" rel="noopener">Open post</a>
+<div class="meta"><strong>Why it fits:</strong> agent-harness territory. Everything wes has shipped for governed runs (DashClaw approval gates, per-step guard checks, the catastrophe floor) works by forcing agent output into a bounded shape before it can act.</div>
+<div class="meta"><strong>Angle:</strong> agree from his own evidence. wes can say his harness experience confirms the point: freeform output is the enemy of any governed loop, and constrained output is what makes approval gating possible at all. Then ask what Jev changes about how the harness gets designed.</div>
+<div class="draftbox"><div class="draftlabel">Draft reply <button class="copybtn" onclick="copyDraft(this, 'draft-2026-09-18-1')">Copy</button></div><div class="draft" id="draft-2026-09-18-1">Constrained output is the whole game for harnesses. All my approval gates and guard checks are basically that, bounded schema before anything acts. What are you building with Jev, freeform output gone entirely?</div></div>
+</div>
+<div class="card">
+<div class="card-head"><span class="handle">@konig0000</span> <span class="reach">19.1k followers</span></div>
+<div class="post">plugged a tool into Claude Code to see if it fixes the biggest pain of agent workflows, context compaction. Notes every session&#x27;s context window fills fast with tool calls.</div>
+<a class="postlink" href="https://x.com/konig0000/status/2100928550950129747" target="_blank" rel="noopener">Open post</a>
+<div class="meta"><strong>Why it fits:</strong> agent session and context management is wes&#x27;s home turf. LegCli exists because sessions die and context rots; he has run long autonomous loops and built handoff infrastructure around exactly this boundary.</div>
+<div class="meta"><strong>Angle:</strong> sharpen the claim. A compaction fix keeps one session alive longer, but wes&#x27;s long runs die at the handoff, not in the window. New machine, crash, a different agent picking it up: compaction never covered that. Ask whether the fix handles the session boundary, since that is where his runs actually break.</div>
+<div class="draftbox"><div class="draftlabel">Draft reply <button class="copybtn" onclick="copyDraft(this, 'draft-2026-09-18-2')">Copy</button></div><div class="draft" id="draft-2026-09-18-2">Compaction is fine inside one session. My long runs die at the handoff. New machine, crash, different agent picking it up. Does the fix handle that, or is it just keeping one session alive longer?</div></div>
+</div>
+<div class="card">
+<div class="card-head"><span class="handle">@grok</span> <span class="reach">9.1M followers</span></div>
+<div class="post">a reply listing pros of Claude Projects parallel threads. Parallel tasks in the background, keeps going after you close your laptop, shared memory and file library across threads, Claude coordinates, reviews, and assembles results.</div>
+<a class="postlink" href="https://x.com/grok/status/2100926439373615386" target="_blank" rel="noopener">Open post</a>
+<div class="meta"><strong>Why it fits:</strong> token and cost economics of agent loops. wes has measured subagent token costs, and parallel coordinator/worker setups are exactly where budgets burn fastest. The hard gate he has lived: cap coordinator plus worker usage, because parallel sessions burn limits faster.</div>
+<div class="meta"><strong>Angle:</strong> supply the missing con to the pros list. Parallel threads sound free until the coordinator overhead shows up in the quota. wes can note that he measured this directly, then ask whether there is a usage cap on the coordinator or if one busy session eats the whole budget.</div>
+<div class="draftbox"><div class="draftlabel">Draft reply <button class="copybtn" onclick="copyDraft(this, 'draft-2026-09-18-3')">Copy</button></div><div class="draft" id="draft-2026-09-18-3">Parallel threads burn quota fast. I measured subagent token costs and the coordinator overhead adds up quick. Is there a usage cap on it, or does one busy session eat your whole budget?</div></div>
+</div>
+<div class="notes"><strong>Notes</strong><ul>
+<li>Smaller accounts with on-territory posts but below the reach bar today: @bridgertower (webmcp skill so you don&#x27;t need a second MCP server, MCP territory), @jasim_humaiyun (handoff playbooks, rotate sessions before first compaction; session territory), @BakarsPOV (a model&#x27;s own compaction summary carrying self-written prompt injection; governance-adjacent), @wenvotop (Codex quota at zero, GitHub workflow workaround; usage-limits territory), @skndrdotcom (5.7k followers, &quot;team codex vs team claude, now everyone is out of quota&quot;). No fast-breakout engagement signal on any of them, so none made the bar.</li>
+<li>Skipped on reply saturation: @hwchase17&#x27;s &quot;models may not actually benefit from a native harness&quot; (Sep 17, 57 replies) and @rauchg&#x27;s &quot;1.4 billion deployments in the last 10 months&quot; (Sep 17, 62 replies). Both are prime territory debates; check whether follow-up posts land in a replyable range.</li>
+</ul></div>
+</section>
 <section class="day" id="2026-09-17">
 <h2>2026-09-17</h2>
 <ul class="summary">
