@@ -32,6 +32,58 @@ background:#fff;cursor:pointer}
 <body>
 <h1>Reply Radar</h1>
 <div class="sub">Daily X reply opportunities for @ucsandman. Drafts are in wes's voice; he posts them himself.</div>
+<section class="day" id="2026-09-19">
+<h2>2026-09-19</h2>
+<ul class="summary">
+<li>8 X API v2 recent-search queries (2 watchlist `from:` batches, 6 topic queries), 115 posts returned, all within the last 24 hours. Cost approx $0.58 at $0.005/post, over the ~$0.30/day cap. Next run: fewer, tighter queries, stay under 60 posts total.</li>
+<li>Day theme: the Jev wave plus the Codex limits meltdown. TypeSafe&#x27;s Jev (decision model, ~$0.04/M input tokens, free output) is dominating agent-infra conversation: LangChain is running internal demos, harness builders are integrating it, and the &quot;Internet moment&quot; framing is everywhere. Separately, Codex users are reporting quota evaporating mid-task today, with &quot;Codex limits&quot; the loudest complaint on the timeline.</li>
+<li>Watchlist: karpathy quiet (nothing in the last 24h). swyx posted only retweets and podcast mentions, nothing in territory. AnthropicAI posted Accenture evals partnership, protein design competition, and AI R&amp;D measurement posts: all saturated (200-560 replies) and none in wes&#x27;s territory. rauchg&#x27;s Vercel AI Gateway open-model token-volume record post (Sep 19, 65 replies) is saturated. levelsio&#x27;s posts are not territory.</li>
+</ul>
+<div class="card">
+<div class="card-head"><span class="handle">@hwchase17</span> <span class="reach">131.4k followers</span></div>
+<div class="post">&quot;jev has sparked more internal demos and exploration of how we can use it in our product than any other model launch, its not even close&quot;</div>
+<a class="postlink" href="https://x.com/hwchase17/status/2101095843096912100" target="_blank" rel="noopener">Open post</a>
+<div class="meta"><strong>Why it fits:</strong> token and cost economics of agent loops. wes has measured subagent token costs directly (the $27.72 math-records run) and built cost-aware tooling around agent runs. Jev at ~$0.04/M input tokens with free output changes what a loop can afford to decide.</div>
+<div class="meta"><strong>Angle:</strong> the headline price is not the point. The point is which decisions get cheap enough to call constantly: tool choice, continue/stop, routing. wes&#x27;s measured experience says the decision call was never the expensive part, the context reloaded around it was. The real question is what the loop architecture looks like when &quot;what next&quot; is basically free.</div>
+<div class="draftbox"><div class="draftlabel">Draft reply <button class="copybtn" onclick="copyDraft(this, 'draft-2026-09-19-1')">Copy</button></div><div class="draft" id="draft-2026-09-19-1">When the decision call is basically free the whole loop changes. I measured subagent token costs on real runs and the call was never the expensive part, context around it was. What breaks first when you start asking what next at every step?</div></div>
+</div>
+<div class="card">
+<div class="card-head"><span class="handle">@hwchase17</span> <span class="reach">131.4k followers</span></div>
+<div class="post">&quot;Semantic triggers / Semantic crons&quot; (LangChain semantic crons announcement)</div>
+<a class="postlink" href="https://x.com/hwchase17/status/2101108730716958780" target="_blank" rel="noopener">Open post</a>
+<div class="meta"><strong>Why it fits:</strong> governed unattended runs. wes runs scheduled agent work every day (DashClaw dogfood cron, catastrophe floor regression probe, this radar) with per-step guard checks and approval gating. He knows exactly what breaks when agents run while nobody is watching.</div>
+<div class="meta"><strong>Angle:</strong> a cron that fires on time is the easy version. Semantic triggers mean the agent decides WHEN to run, and that is the part that needs governance: approval gates before irreversible actions, an audit trail, a kill switch. wes&#x27;s unattended runs only survive because of the guard layer, so he can ask how semantic crons keep a self-triggering loop from running away.</div>
+<div class="draftbox"><div class="draftlabel">Draft reply <button class="copybtn" onclick="copyDraft(this, 'draft-2026-09-19-2')">Copy</button></div><div class="draft" id="draft-2026-09-19-2">Time crons are the easy version. The moment the agent decides when to run you need the guard layer: approval gates before irreversible actions, an audit trail, a kill switch. My daily unattended runs only survive because of that. How do semantic crons keep a self triggering loop from running away?</div></div>
+</div>
+<div class="card">
+<div class="card-head"><span class="handle">@zackrichland</span> <span class="reach">3.6k followers</span></div>
+<div class="post">&quot;The elephant in the room is Codex usage limits. I&#x27;m using Claude Code for the first time in months.&quot;</div>
+<a class="postlink" href="https://x.com/zackrichland/status/2101286665796948345" target="_blank" rel="noopener">Open post</a>
+<div class="meta"><strong>Why it fits:</strong> coding agents and usage limits is core territory. wes has tracked where coding agents hide their limits and measured real agent-run costs. Today&#x27;s timeline is full of Codex quota meltdown reports (users burning through $200 plans in days, quotas dropping while idle).</div>
+<div class="meta"><strong>Angle:</strong> the limit itself is not the problem, the moving limit is. A stated quota you can measure and plan against is fine. A quota that evaporates mid-task destroys trust in the tool. wes can speak to measuring actual usage against what vendors claim and ask which kind of limit Codex is running right now.</div>
+<div class="draftbox"><div class="draftlabel">Draft reply <button class="copybtn" onclick="copyDraft(this, 'draft-2026-09-19-3')">Copy</button></div><div class="draft" id="draft-2026-09-19-3">The limit itself is not the problem. The problem is the limit moves. A quota you can measure and plan around is fine. A quota that evaporates mid task kills the tool. Which one is Codex right now?</div></div>
+</div>
+<div class="card">
+<div class="card-head"><span class="handle">@chopra_tejas</span> <span class="reach">1.1k followers</span></div>
+<div class="post">&quot;Agents remember. They never un-remember. We built invalidate: every time something happens, every stored memory is asked one question. Is this still true? Stale ones get marked. Nothing is rewritten.&quot;</div>
+<a class="postlink" href="https://x.com/chopra_tejas/status/2101169076232167795" target="_blank" rel="noopener">Open post</a>
+<div class="meta"><strong>Why it fits:</strong> agent session and memory management, LegCli territory. wes built session handoff infrastructure and has watched context rot across sessions. Memory invalidation is the failure mode his handoff work has to survive.</div>
+<div class="meta"><strong>Angle:</strong> capture is the solved half, invalidation is the hard half. A handoff that replays a decision that is no longer true is worse than no handoff at all. wes can confirm this from his own runs and ask how they keep the re-validation cost from exceeding what the memory saves.</div>
+<div class="draftbox"><div class="draftlabel">Draft reply <button class="copybtn" onclick="copyDraft(this, 'draft-2026-09-19-4')">Copy</button></div><div class="draft" id="draft-2026-09-19-4">Capture is the solved half. Invalidation is the hard half. A handoff that replays a decision that is no longer true is worse than no handoff. How do you keep the recheck from costing more than the memory saves?</div></div>
+</div>
+<div class="card">
+<div class="card-head"><span class="handle">@cdenczek</span> <span class="reach">213 followers</span></div>
+<div class="post">&quot;Planning to add support for Jev in my Silicon Optimizer app, where you can host local models and make them available to your agents over MCP.&quot;</div>
+<a class="postlink" href="https://x.com/cdenczek/status/2101191875700961431" target="_blank" rel="noopener">Open post</a>
+<div class="meta"><strong>Why it fits:</strong> MCP ecosystem. wes built and hardened leg-alexa-mcp (bearer-token auth plus single-use session-bound confirmation tokens) and knows where MCP servers actually get hard. Local-first model serving over MCP is exactly the pattern he has shipped.</div>
+<div class="meta"><strong>Angle:</strong> plumbing the model into MCP is the easy part. The hard part is auth and session scoping: who can call what, and for how long. Every MCP launch post skips the auth story, so wes can say he hardened his own server there and ask how tool access gets gated.</div>
+<div class="draftbox"><div class="draftlabel">Draft reply <button class="copybtn" onclick="copyDraft(this, 'draft-2026-09-19-5')">Copy</button></div><div class="draft" id="draft-2026-09-19-5">Plumbing the model into MCP is the easy part. The hard part is auth and session scoping, who can call what and for how long. I hardened my own MCP server there and every launch post skips it. How are you gating tool access?</div></div>
+</div>
+<div class="notes"><strong>Notes</strong><ul>
+<li>Smaller accounts with on-territory posts but no fast-breakout signal, below the reach bar today: @knapabuse2 (funes local memory across agents), @SparkTsaiX (project continuity vs agent memory, LegCli territory), @MatiasBernal6 (Project Memory Protocol, also Sep 15 so too old), @preeteshjain (Jev product-ideas list, agent loops theme), @amnigos (Jevons paradox on Jev popularity), @cryptomanianQ (constrained credit for agents, crypto-adjacent so skipped).</li>
+<li>Skipped on reply saturation: @buildwithrajath&#x27;s Codex limits viral post (Sep 19, 68 replies) and @Christol4x&#x27;s Claude Code guardrails post (Sep 19, 125 replies). Both are prime territory; watch for follow-up posts in a replyable range.</li>
+</ul></div>
+</section>
 <section class="day" id="2026-09-18">
 <h2>2026-09-18</h2>
 <ul class="summary">
